@@ -13,11 +13,11 @@ namespace BlogApp.Core.Domain.Content
 
         [Required]
         [MaxLength(250)]
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar(250")]
-        public string? Slug { get; set; }
+        [Column(TypeName = "varchar(250)")]
+        public required string Slug { get; set; }
 
         [MaxLength(500)]
         public string? Description { get; set; }
@@ -30,7 +30,7 @@ namespace BlogApp.Core.Domain.Content
 
         public string? Content { get; set; }
 
-        [MaxLength(500)]
+        [Required]
         public Guid AuthorUserId { get; set; }
 
         [MaxLength(128)]
@@ -50,7 +50,8 @@ namespace BlogApp.Core.Domain.Content
 
         public bool IsPaid { get; set; }
 
-        public double RoyaltyAmount { get; set; } //tien nhuan but
+        public double RoyaltyAmount { get; set; }
+
         public PostStatus Status { get; set; }
     }
 
@@ -61,6 +62,6 @@ namespace BlogApp.Core.Domain.Content
         WaitingForApproval = 3,
         Rejected = 4,
         WaitingForPublish = 5,
-        Published = 6,
+        Published = 6
     }
 }
